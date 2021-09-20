@@ -10,7 +10,8 @@ namespace ConsoleApp1
 
         public int euclid_rest(int a, int b)
         {
-            return a % b;
+            int div_num = a / b;
+            return a - div_num;
         }
         public double volume_sphere(double radius)
         {
