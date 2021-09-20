@@ -31,18 +31,18 @@ namespace ConsoleApp1
 
             Console.WriteLine("Hello! Let's test)\n");
 
-            Console.WriteLine("| Euclid_rest |");
+            Console.WriteLine("| Euclid rest |");
             Console.WriteLine("Enter 2 numbers:");
             int a = Convert.ToInt32(Console.ReadLine());
             int b = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Result:\n" + exercice.euclid_rest(a, b) + "\n");
 
-            Console.WriteLine("| Volume_sphere |");
+            Console.WriteLine("| Volume sphere |");
             Console.WriteLine("Enter radius:");
             double radius = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Result:\n" + exercice.volume_sphere(radius) + "\n");
 
-            Console.WriteLine("| discount_price |");
+            Console.WriteLine("| Discount price |");
             Console.WriteLine("Enter price and discount:");
             double price = Convert.ToDouble(Console.ReadLine());
             int discount = Convert.ToInt32(Console.ReadLine());
