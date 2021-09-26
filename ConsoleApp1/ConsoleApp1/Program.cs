@@ -8,7 +8,7 @@ namespace ConsoleApp1
         {
             var rand = new Random();
             Console.WriteLine("Hello! Let's test)\n");
-            Console.WriteLine("Select exercise number: 1,2,3,4,5,6 or 0 for exit \n");
+            Console.WriteLine("Select exercise number: 1,2,3,4,5,6,7,8,9 or 0 for exit \n");
             bool exit = false;
             while (!exit)
             {
@@ -110,13 +110,30 @@ namespace ConsoleApp1
                             Console.WriteLine("Sorted by bull:\n" + string.Join(",", ex7.SortBull(arr)));
                             break;
 
+                        case 8:
+                            Ex8 ex8 = new Ex8();
+                            Console.WriteLine("Enter number to calculate Fibonnachi humber:");
+                            int choiceN = 0;
+                            bool isNumberN = false;
+                            while (!isNumberN)
+                            {
+                                string readN = Console.ReadLine();
+                                isNumberN = int.TryParse(readN, out choiceN);
+                                if (!isNumberN)
+                                {
+                                    Console.WriteLine("ERROR. Enter a number correctly");
+                                }
+                            }
+                            Console.WriteLine(ex8.Fibonachi(choiceN));
+                            break;
+
                         case 0: exit = true; break;
 
                         default: Console.WriteLine("ERROR"); break;
                     }
                     if (!exit)
                     {
-                        Console.WriteLine("Select 1,2,3,4,5 or 0 for exit");
+                        Console.WriteLine("Select 1,2,3,4,5,6,7,8,9 or 0 for exit");
                     }
                 }
             }
