@@ -8,7 +8,7 @@ namespace ConsoleApp1
         {
             var rand = new Random();
             Console.WriteLine("Hello! Let's test)\n");
-            Console.WriteLine("Select exercise number: 1,2,3,4,5 or 6 for exit \n");
+            Console.WriteLine("Select exercise number: 1,2,3,4,5,6 or 0 for exit \n");
             bool exit = false;
             while (!exit)
             {
@@ -70,7 +70,7 @@ namespace ConsoleApp1
                             Console.WriteLine("rabais: " + rabais);
 
                             Console.WriteLine("Result:");
-                            Console.WriteLine(string.Join(" ", exercice4.ArrayFilter(arr1, arr2, NumberSeuil, rabais)));
+                            Console.WriteLine(string.Join(" ", exercice4.Process_exercice(arr1, arr2, NumberSeuil, rabais)));
                             break;
 
                         case 5:
@@ -81,13 +81,42 @@ namespace ConsoleApp1
                             exercice5.InitShowArray(arr5);
                             break;
 
-                        case 6: exit = true; break;
+                        case 6:
+                            var ex6 = new Ex6();
+                            arr1 = new int[10];
+                            arr2 = new int[10];
+
+                            for (int i = 0; i < 10; i++)
+                            {
+                                arr1[i] = rand.Next(0, 101);
+                                arr2[i] = rand.Next(0, 101);
+                            }
+                            NumberSeuil = rand.Next(0, 101);
+                            rabais = rand.Next(0, 101);
+                            ex6.array = new Ex6.Arrays(arr1, arr2, NumberSeuil, rabais);
+                            Console.WriteLine(ex6.array.ToString());
+                            break;
+
+                        case 7:
+                            Ex7 ex7 = new Ex7();
+                            int[] arr = new int[10];
+                            for (int i = 0; i < 10; i++)
+                            {
+                                arr[i] = rand.Next(0, 101);
+                            }
+                            
+                            Console.WriteLine("Array: " + string.Join(",", arr));
+                            Console.WriteLine("Sorted by selection:\n" + string.Join(",", ex7.SortSelection(arr)));
+                            Console.WriteLine("Sorted by bull:\n" + string.Join(",", ex7.SortBull(arr)));
+                            break;
+
+                        case 0: exit = true; break;
 
                         default: Console.WriteLine("ERROR"); break;
                     }
                     if (!exit)
                     {
-                        Console.WriteLine("Select 1,2,3,4,5 or 6 for exit");
+                        Console.WriteLine("Select 1,2,3,4,5 or 0 for exit");
                     }
                 }
             }

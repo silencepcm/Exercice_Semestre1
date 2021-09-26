@@ -7,38 +7,26 @@ namespace ConsoleApp1
     class Ex4
     {
         public static int arr_length = 10;
-        public int[] ArrayFilter(int[] arr1, int[] arr2, int NumberSeuil, int rabais)
+        public List<int> ArrayFilter(int[] arr1, int rabais, int NumberSeuil)
         {
-            var ex3 = new Ex3();
-            int[] Filtred;
-            Filtred = new int[arr1.Length+arr2.Length];
-            int count = 0;
-
-
+            Ex3 ex3 = new Ex3();
+            List<int> res = new List<int>();
             foreach (int element in arr1)
-            {
-                if(ex3.DiscountPrice(element, rabais) <= NumberSeuil)
-                {
-                    Filtred[count] = element;
-                    count++;
-                }
-            }
-            foreach (int element in arr2)
             {
                 if (ex3.DiscountPrice(element, rabais) <= NumberSeuil)
                 {
-                    Filtred[count] = element;
-                    count++;
+                    res.Add(element);
                 }
             }
+            return res;
+        }
 
-            int[] result;
-            result = new int[count];
-            for (int i=0; i< result.Length; ++i)
-            {
-                result[i] = Filtred[i];
-            }
-            return result;
+        public List<int> Process_exercice(int[] arr1, int[] arr2, int NumberSeuil, int rabais)
+        {
+            List<int> Filtred = new List<int>();
+            Filtred.AddRange(ArrayFilter(arr1, rabais, NumberSeuil));
+            Filtred.AddRange(ArrayFilter(arr2, rabais, NumberSeuil));
+            return Filtred;
         }
     }
 }
